@@ -6,13 +6,14 @@ const ProductList = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        axios.get('https://localhost:8005/api/v1/products')
-            .then(response => {
-                setProducts(response.data);
-            })
-            .catch(error => {
-                console.error('There was an error fetching the products!', error);
-            });
+        axios
+          .get("http://ec2-13-51-86-194.eu-north-1.compute.amazonaws.com/api/v1/products")
+          .then((response) => {
+            setProducts(response.data);
+          })
+          .catch((error) => {
+            console.error("There was an error fetching the products!", error);
+          });
     }, []);
 
     const nextProduct = () => {
